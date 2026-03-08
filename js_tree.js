@@ -47,6 +47,12 @@ var wsCount = 0;
 window.onload = makeTree;
 
 function makeTree() {
+  // fix: resetting global counters
+  nodeCount = 0;
+  elemCount = 0;
+  textCount = 0;
+  wsCount = 0;
+   
   // 1. create the aside element fragment 
   let asideElem = document.createElement("aside");
   asideElem.id = "treeBox";
@@ -68,15 +74,7 @@ function makeTree() {
   makeBranches(sourceArticle, nodeList);
   
   // task 6: update the page with the final counts
-  document.getElementById("totalNodes").textContent = nodeCount;
-  document.getElementById("elemNodes").textContent = elemCount;
-  document.getElementById("textNodes").textContent = textCount;
-  document.getElementById("wsNodes").textContent = wsCount;
-
-  // calls the recursive function to build the tree and tally the counts
-  makeBranches(sourceArticle, nodeList);
-  
-  // updates the page with the final counts
+  // fix: removed duplicaed section
   document.getElementById("totalNodes").textContent = nodeCount;
   document.getElementById("elemNodes").textContent = elemCount;
   document.getElementById("textNodes").textContent = textCount;
